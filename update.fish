@@ -1,4 +1,4 @@
-set files ~/.tmux.conf ~/.config/fish/ ~/.config/nvim/ ~/.config/ghostty
+set files ~/.tmux.conf ~/.config/fish ~/.config/nvim ~/.config/ghostty
 
 for f in $files:
     cp -r $f .
