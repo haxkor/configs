@@ -1,7 +1,7 @@
 set files ~/.tmux.conf ~/.config/fish/ ~/.config/nvim/ ~/.config/ghostty
 
 for f in $files:
-    cp $f .
+    cp -r $f .
     echo $f
 end
 
