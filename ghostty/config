@@ -1,21 +1,21 @@
 font-size = 20
 
 font-family = "Berkeley Mono"
-font-family = "IBM Plex Mono"
 font-thicken = true
 
+font-feature = -calt
+font-feature = -liga
+font-feature = -dlig
+
 # Navigate between splits with vim-style keys
-keybind = ctrl+h=goto_split:left
-keybind = ctrl+j=goto_split:down
-keybind = ctrl+k=goto_split:up
-keybind = ctrl+l=goto_split:right
+keybind = performable:ctrl+h=goto_split:left
+keybind = performable:ctrl+j=goto_split:down
+keybind = performable:ctrl+k=goto_split:up
+keybind = performable:ctrl+l=goto_split:right
 
 # Create new splits
 keybind = ctrl+s=new_split:down
 keybind = ctrl+v=new_split:right
 
-# navigate between tabs
-keybind = ctrl+h=previous_tab
-keybind = ctrl+l=next_tab
 
 command = /opt/homebrew/bin/fish
