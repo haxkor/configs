@@ -1,12 +1,17 @@
 set files ~/.tmux.conf ~/.config/fish ~/.config/nvim ~/.config/ghostty
-set fish_trace true
-
-echo $files
 
 for f in $files;
-    cp -r $f .
+    rsync -a --delete $f .
+    or begin
+        echo "rsync failed for $f" >&2
+        exit 1
+    end;
 end;
 
-git add *
-git commit -m "autoupdate"
-git push
+git add -A
+if git diff --cached --quiet
+    echo "nothing to commit"
+else
+    git commit -m "autoupdate "(date +%Y-%m-%d_%H:%M)
+    git push
+end
