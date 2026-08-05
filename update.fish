@@ -1,6 +1,8 @@
 set files ~/.tmux.conf ~/.config/fish ~/.config/nvim ~/.config/ghostty
 set fish_trace true
 
+echo $files
+
 for f in $files:
     cp -r $f .
     echo $f
