@@ -5,7 +5,7 @@ echo $files
 
 for f in $files;
     cp -r $f .
-    echo $f;
+    git add $f;
 end;
 
 git add *
