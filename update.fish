@@ -3,10 +3,10 @@ set fish_trace true
 
 echo $files
 
-for f in $files:
+for f in $files;
     cp -r $f .
-    echo $f
-end
+    echo $f;
+end;
 
 git add *
 git commit -m "autoupdate"
