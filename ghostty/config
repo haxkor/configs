@@ -17,5 +17,6 @@ keybind = performable:ctrl+l=goto_split:right
 keybind = ctrl+s=new_split:down
 keybind = ctrl+v=new_split:right
 
+term = xterm-256color
 
 command = /opt/homebrew/bin/fish
