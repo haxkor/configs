@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
 function update
-    set files ~/.tmux.conf ~/.config/fish ~/.config/nvim ~/.config/ghostty ~/.config/zed/settings.json
+    set files ~/.tmux.conf ~/.config/fish ~/.config/nvim ~/.config/ghostty ~/.config/zed
 
     for f in $files;
         rsync -a --delete $f synced/
