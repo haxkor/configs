@@ -1,5 +1,11 @@
-function tfssh --description 'SSH into a Terraform machine by name'
+function tfssh --description 'SSH into a Terraform machine by name or number'
     set -l key $argv[1]
+
+    set -l tf_files *.tf *.tofu
+    if test (count $tf_files) -eq 0
+        echo "tfssh: no OpenTofu files (*.tf, *.tofu) in "(pwd) >&2
+        return 1
+    end
 
     set -l json (tofu output -json addresses_by_name)
     set -l keys (echo $json | jq -r 'keys[]')
@@ -8,18 +14,24 @@ function tfssh --description 'SSH into a Terraform machine by name'
         if test (count $keys) -eq 1
             set key $keys[1]
         else
-            echo "Multiple machines available, please specify one:" >&2
-            for k in $keys
-                echo "  $k" >&2
+            for i in (seq 0 (math (count $keys) - 1))
+                echo "  $i " $keys[(math $i + 1)] >&2
             end
             return 1
         end
+    else if string match -qr '^[0-9]+$' -- $key
+        if test $key -lt 0 -o $key -ge (count $keys)
+            for i in (seq 0 (math (count $keys) - 1))
+                echo "  $i " $keys[(math $i + 1)] >&2
+            end
+            return 1
+        end
+        set key $keys[(math $key + 1)]
     end
 
     if not echo $json | jq -e --arg k "$key" 'has($k)' >/dev/null
-        echo "No entry '$key' in addresses_by_name. Available keys:" >&2
-        for k in $keys
-            echo "  $k" >&2
+        for i in (seq 0 (math (count $keys) - 1))
+            echo "  $i " $keys[(math $i + 1)] >&2
         end
         return 1
     end
