@@ -7,16 +7,10 @@ font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
 
-# Navigate between splits with vim-style keys
-keybind = performable:ctrl+h=goto_split:left
-keybind = performable:ctrl+j=goto_split:down
-keybind = performable:ctrl+k=goto_split:up
-keybind = performable:ctrl+l=goto_split:right
-
-# Create new splits
-keybind = ctrl+s=new_split:down
-keybind = ctrl+v=new_split:right
-
 term = xterm-256color
 
 command = /opt/homebrew/bin/fish
+command = /opt/homebrew/bin/tmux new-session -A
+
+keybind = cmd+t=unbind
+keybind = cmd+t=text:\x1bT  # this sends ESC+T to tmux, there it is bound as a new window command
