@@ -5,3 +5,5 @@ if status is-interactive
     abbr --add py3 python3
     alias vim nvim
 end
+
+set --global fish_key_bindings fish_vi_key_bindings
