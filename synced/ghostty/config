@@ -15,6 +15,3 @@ command = /opt/homebrew/bin/tmux new-session -A
 keybind = cmd+t=unbind
 # this sends ESC+T to tmux, there it is bound as a new window command
 keybind = cmd+t=text:\x1bT 
-
-
-confirm-close-surface = false
