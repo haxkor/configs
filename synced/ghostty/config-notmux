@@ -1,0 +1,18 @@
+font-size = 20
+
+font-family = "Berkeley Mono"
+font-thicken = true
+
+font-feature = -calt
+font-feature = -liga
+font-feature = -dlig
+
+term = xterm-256color
+
+command = fish
+
+keybind = cmd+t=unbind
+# this sends ESC+T to tmux, there it is bound as a new window command
+keybind = cmd+t=text:\x1bT 
+
+confirm-close-surface = false
