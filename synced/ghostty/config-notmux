@@ -9,7 +9,7 @@ font-feature = -dlig
 
 term = xterm-256color
 
-command = fish
+command = ssh -t ionos
 
 keybind = cmd+t=unbind
 # this sends ESC+T to tmux, there it is bound as a new window command

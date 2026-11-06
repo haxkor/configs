@@ -28,4 +28,16 @@
       // "j k": "vim::NormalBefore"
     },
   },
+  {
+     "context": "Workspace",
+     "bindings": {
+       "ctrl-shift-t": ["task::Spawn", { "task_name": "Open Ghostty here" }]
+     }
+   },
+   {
+     "context": "Editor",
+     "bindings": {
+       "ctrl-shift-t": ["task::Spawn", { "task_name": "Open Ghostty here" }]
+     }
+   }
 ]
